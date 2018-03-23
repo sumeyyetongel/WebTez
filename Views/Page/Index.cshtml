@@ -3,40 +3,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
-    <style type="text/css">
-        a:link {
-            text-decoration: none;
-        }
+<style type="text/css">
+    #ana_div {
+        height: 300px;
+        width: 960px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 90px;
+    }
 
-        a:visited {
-            text-decoration: none;
-        }
+    .div {
+        float: left;
+        display: inline-block;
+        height: 200px;
+        width: 300px;
+        margin: 10px;
+    }
+</style>
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content" style="margin-top: 95px;">
+        <div class="container-fluid ">
 
-        a:hover {
-            text-decoration: none;
-        }
+            <div class="row">
+                <div class="col-md-offset-4 container-fluid col-md-4">
 
-        a:active {
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
 
-    <div style="margin-top:300px;">
-        <div style="margin-left: 700px;">
-            <a href="#"><img style="width: 200px;height: 200px;" src="~/Content/images/mezun.png"><h1 style="text-decoration: none;">Öğrenci Girişi</h1></a>
+
+
+                    <div id="ana_div">
+                        <a href="#"><div class="div" style="background-image:url('../../Content/images/ic.png');background-repeat: no-repeat;border-radius: 100px;width:200px; height:200px;opacity:0.9; background-size: 100% 100%"><h1 style="text-decoration: none;">Öğrenci Girişi</h1></a>
+
+
+                    </div>
+                    <div>
+                        <a href="~/Admin/Login"><div class="div" style="background-image:url('../../Content/images/person-man.png');background-repeat: no-repeat;border-radius: 100px;width:200px; height:200px;opacity:0.9; background-size: 100% 100%"><h1 style="text-decoration: none;">Personel Girişi</h1></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- END INPUT SIZING -->
+            </div>
+
+
         </div>
     </div>
-    <div style="margin-top:-250px;">
-        <div style="margin-left: 1000px;">
-            <a href="~/Admin/Login"><img style="width: 200px;height: 200px;" src="~/Content/images/mezunlar.jpg"><h1 style="text-decoration: none;">Personel Girişi</h1></a>
-        </div>
-    </div>
-</body>
-</html>
+</div>
+
+
+
+

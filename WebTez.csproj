@@ -195,11 +195,13 @@
     <Content Include="Content\images\aa.png" />
     <Content Include="Content\images\apple-icon.png" />
     <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\ic.png" />
     <Content Include="Content\images\kahraman.jpg" />
     <Content Include="Content\images\login-bg.jpg" />
     <Content Include="Content\images\logo-dark.png" />
     <Content Include="Content\images\mezun.png" />
     <Content Include="Content\images\mezunlar.jpg" />
+    <Content Include="Content\images\person-man.png" />
     <Content Include="Content\images\profile-bg.png" />
     <Content Include="Content\images\sumeyye.JPG" />
     <Content Include="Content\images\user-medium.png" />
