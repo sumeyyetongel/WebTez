@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="graduatelistModelStoreContainer" CdmEntityContainer="DropDownModel">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="graduatelistModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="graduatelistModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Faculty_id_fak_id" ColumnName="Faculty_id_fak_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="graduatelistModel.Faculties">
+        <MappingFragment StoreEntitySet="Faculties">
+          <ScalarProperty Name="fak_id" ColumnName="fak_id" />
+          <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
+          <ScalarProperty Name="University_ID_uni_id" ColumnName="University_ID_uni_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InternshipInformations">
+      <EntityTypeMapping TypeName="graduatelistModel.InternshipInformations">
+        <MappingFragment StoreEntitySet="InternshipInformations">
+          <ScalarProperty Name="inter_id" ColumnName="inter_id" />
+          <ScalarProperty Name="InternshipDate" ColumnName="InternshipDate" />
+          <ScalarProperty Name="CorporationName" ColumnName="CorporationName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Student_ID_stu_id" ColumnName="Student_ID_stu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="graduatelistModel.Provinces">
+        <MappingFragment StoreEntitySet="Provinces">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="proviceName" ColumnName="proviceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResponsiblePersons">
+      <EntityTypeMapping TypeName="graduatelistModel.ResponsiblePersons">
+        <MappingFragment StoreEntitySet="ResponsiblePersons">
+          <ScalarProperty Name="res_id" ColumnName="res_id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Department_ID_dep_id" ColumnName="Department_ID_dep_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="graduatelistModel.Students">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="StudentNumber" ColumnName="StudentNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+          <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+          <ScalarProperty Name="GraduateDate" ColumnName="GraduateDate" />
+          <ScalarProperty Name="GradeAverage" ColumnName="GradeAverage" />
+          <ScalarProperty Name="PreparationInformation" ColumnName="PreparationInformation" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Responasible_ID_res_id" ColumnName="Responasible_ID_res_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universitiys">
+      <EntityTypeMapping TypeName="graduatelistModel.Universitiys">
+        <MappingFragment StoreEntitySet="Universitiys">
+          <ScalarProperty Name="uni_id" ColumnName="uni_id" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="Province_pro_id" ColumnName="Province_pro_id" />
+          <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkingInformations">
+      <EntityTypeMapping TypeName="graduatelistModel.WorkingInformations">
+        <MappingFragment StoreEntitySet="WorkingInformations">
+          <ScalarProperty Name="work_id" ColumnName="work_id" />
+          <ScalarProperty Name="CorporationName" ColumnName="CorporationName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="PozitionName" ColumnName="PozitionName" />
+          <ScalarProperty Name="proviceName" ColumnName="proviceName" />
+          <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+          <ScalarProperty Name="OutputDate" ColumnName="OutputDate" />
+          <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+          <ScalarProperty Name="Student_ID_stu_id" ColumnName="Student_ID_stu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

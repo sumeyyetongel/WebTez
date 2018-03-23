@@ -1,0 +1,75 @@
+﻿@model WebTez.ViewModel.State
+
+<label>İl</label>
+@Html.DropDownListFor(m=>m.pro_id,Model.proList, new { @class = "form-control" })
+<br />
+<label>Üniversite</label>
+@Html.DropDownListFor(m => m.uni_id, Model.uniList, new { @class = "form-control" })
+
+<br />
+<label>Fakülte</label>
+@Html.DropDownListFor(m => m.fak_id, Model.fakList, new { @class = "form-control" })
+
+
+<br />
+<label>Bölüm</label>
+@Html.DropDownListFor(m => m.dep_id, Model.DepList, new { @class = "form-control" })
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pro_id").change(function () {
+           
+            var id = $(this).val();
+            var uniList = $("#uni_id");
+            uniList.empty();
+            $.ajax({
+                url: "/Partials/UniList",
+                type: "POST",
+                dataType: "json",
+                data: { "id": id },
+                success: function (data) {
+                    $.each(data, function (index, option) {
+                        uniList.append("<option value="+option.Value+">"+option.Text+"</option>")
+                    });
+                }
+            });
+
+        });
+        $("#uni_id").change(function () {
+                var id = $(this).val();
+                var fakList = $("#fak_id");
+                fakList.empty();
+                $.ajax({
+                    url: "/Partials/FakList",
+                    type: "POST",
+                    dataType: "json",
+                    data: { "id": id },
+                    success: function (data) {
+                        $.each(data, function (index, option) {
+                            fakList.append("<option value=" + option.Value + ">" + option.Text + "</option>")
+                        });
+                    }
+                });
+
+            });
+        $("#fak_id").change(function () {
+                var id = $(this).val();
+                var depList = $("#dep_id");
+                $("#test1").text(id);
+                depList.empty();
+                $.ajax({
+                    url: "/Partials/DepList",
+                    type: "POST",
+                    dataType: "json",
+                    data: { "id": id },
+                    success: function (data) {
+                        $.each(data, function (index, option) {
+                            depList.append("<option value=" + option.Value + ">" + option.Text + "</option>")
+                        });
+                    }
+                });
+
+            });
+    });
+</script>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="graduatelistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Faculty_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faculties">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacultyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="University_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InternshipInformations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InternshipDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CorporationName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Student_ID_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="pro_id" />
+    </Key>
+    <Property Name="pro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proviceName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResponsiblePersons">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Eposta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentNumber" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Eposta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InputDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GraduateDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GradeAverage" Type="int" Nullable="false" />
+    <Property Name="PreparationInformation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Responasible_ID_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="uni_id" />
+    </Key>
+    <Property Name="uni_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Province_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkingInformations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CorporationName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PozitionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InputDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OutputDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Explanation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WorkAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Student_ID_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_InternshipInformations_dbo_Students_Student_ID_id">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="InternshipInformations" Type="Self.InternshipInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="InternshipInformations">
+        <PropertyRef Name="Student_ID_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Students_dbo_ResponsiblePersons_Responasible_ID_id">
+    <End Role="ResponsiblePersons" Type="Self.ResponsiblePersons" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResponsiblePersons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="Responasible_ID_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_WorkingInformations_dbo_Students_Student_ID_id">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="WorkingInformations" Type="Self.WorkingInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="WorkingInformations">
+        <PropertyRef Name="Student_ID_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Faculties">
+    <End Role="Faculties" Type="Self.Faculties" Multiplicity="1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="Faculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faculties_Universities">
+    <End Role="Universities" Type="Self.Universities" Multiplicity="1" />
+    <End Role="Faculties" Type="Self.Faculties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="uni_id" />
+      </Principal>
+      <Dependent Role="Faculties">
+        <PropertyRef Name="University_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Universities_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+    <End Role="Universities" Type="Self.Universities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="Universities">
+        <PropertyRef Name="Province_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="graduatelistModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InternshipInformations" EntityType="Self.InternshipInformations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResponsiblePersons" EntityType="Self.ResponsiblePersons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Universities" EntityType="Self.Universities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkingInformations" EntityType="Self.WorkingInformations" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_InternshipInformations_dbo_Students_Student_ID_id" Association="Self.FK_dbo_InternshipInformations_dbo_Students_Student_ID_id">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="InternshipInformations" EntitySet="InternshipInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Students_dbo_ResponsiblePersons_Responasible_ID_id" Association="Self.FK_dbo_Students_dbo_ResponsiblePersons_Responasible_ID_id">
+      <End Role="ResponsiblePersons" EntitySet="ResponsiblePersons" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_WorkingInformations_dbo_Students_Student_ID_id" Association="Self.FK_dbo_WorkingInformations_dbo_Students_Student_ID_id">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="WorkingInformations" EntitySet="WorkingInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Faculties" Association="Self.FK_Departments_Faculties">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faculties_Universities" Association="Self.FK_Faculties_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="Faculties" EntitySet="Faculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Universities_Provinces" Association="Self.FK_Universities_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Universities" EntitySet="Universities" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
